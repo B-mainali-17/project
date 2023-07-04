@@ -1,0 +1,175 @@
+<style>
+  @import url(https://fonts.googleapis.com/css?family=Istok+Web);
+  @keyframes slidy {
+    0% {
+      left: 0%;
+    }
+    20% {
+      left: 0%;
+    }
+    25% {
+      left: -100%;
+    }
+    45% {
+      left: -100%;
+    }
+    50% {
+      left: -200%;
+    }
+    70% {
+      left: -200%;
+    }
+    75% {
+      left: -300%;
+    }
+    95% {
+      left: -300%;
+    }
+    100% {
+      left: -400%;
+    }
+  }
+  * {
+    box-sizing: border-box;
+  }
+  body,
+  figure {
+    margin: 0;
+    background: #ffffff;
+    font-family: Istok Web, sans-serif;
+    font-weight: 100;
+  }
+  div#captioned-gallery {
+    width: 100%;
+    overflow: hidden;
+  }
+  figure.slider {
+    position: relative;
+    width: 500%;
+    font-size: 0;
+    animation: 30s slidy infinite;
+  }
+  figure.slider figure {
+    width: 20%;
+    height: auto;
+    display: inline-block;
+    position: inherit;
+  }
+  figure.slider img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .venue-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.717);
+    z-index: 999;
+    margin-top: -60px;
+    color: white;
+  }
+
+  .venue-location img {
+    width: 20px;
+    margin: 0px 10px;
+  }
+
+  .venue-detail-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+</style>
+
+<div id="captioned-gallery">
+  <figure class="slider">
+    <figure>
+      <img src="image/IMG_1262.JPG" alt />
+    </figure>
+    <figure>
+      <img src="image/IMG_1263.JPG" alt />
+    </figure>
+    <figure>
+      <img src="image/IMG_1264.JPG" alt />
+    </figure>
+    <figure>
+      <img src="image/IMG_1330.JPG" alt />
+    </figure>
+    <figure>
+      <img src="image/IMG_1264.JPG" alt />
+    </figure>
+  </figure>
+
+  <div class="overlay">
+    <div class="venue-container">
+      <div class="venue-brief venue-name">
+        <p>Everest Hotel</p>
+      </div>
+      <div class="venue-brief venue-location">
+        <p><img src="image/public/location.png" alt="" />Kathmandu</p>
+      </div>
+    </div>
+    <div class="about-venue">
+      <div class="venue-name">
+        <p>Everest Hotel</p>
+      </div>
+
+      <hr />
+      <div class="venue-detail-form-grid">
+        <div class="venue-detail">
+          <p class="venue-detail-title">About Everest Hotel</p>
+          <p class="venue-detail-content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate,
+            eligendi deserunt incidunt reprehenderit quia officiis impedit
+            dicta? Dignissimos, sint facilis. Eaque, necessitatibus. Ipsam rem
+            recusandae distinctio magni enim fugit fugiat!
+          </p>
+        </div>
+
+        <div class="venue-form">
+          <p class="venue-detail-title">INQUIRY FORM</p>
+          <label for="event-on">EVENT ON</label>
+          <input type="date" name="event-on" placeholder="date" />
+          <label for="event-until">EVENT UNTIL</label>
+          <input type="date" name="event-until" placeholder="date" />
+
+          <label for="time-from">TIME FROM</label>
+          <input type="time" name="time-from" placeholder="time" />
+
+          <label for="time-to">TIME TO</label>
+          <input type="time" name="time-to" placeholder="time" />
+
+          <label for="event-on">Event on</label>
+          <input type="text" name="event-on" placeholder="time" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<head>
+  <title>Google Maps Example</title>
+  <style>
+    #map {
+      width: 100%;
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <h1>My Map</h1>
+  <div id="map"></div>
+
+  <script>
+    function initMap() {
+      var latitude = <?php echo $latitude; ?>; // Replace with your dynamic latitude value
+      var longitude = <?php echo $longitude; ?>; // Replace with your dynamic longitude value
+
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: latitude, lng: longitude},
+        zoom: 14
+      });
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap"></script>
+</body>
